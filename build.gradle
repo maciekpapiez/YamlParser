@@ -1,0 +1,20 @@
+apply plugin: 'java'
+
+version = '1.0'
+
+jar {
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    manifest {
+        attributes 'Implementation-Title': 'YamlParser', 'Implementation-Version': version, 'Main-Class': 'org.papiez.yaml.Parser'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.yaml:snakeyaml:1.13'
+}
