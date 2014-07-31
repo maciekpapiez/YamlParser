@@ -17,17 +17,20 @@ public class Parser {
 
         for (int i = 0; i <= QUANTITY; i++) {
             double[] finger1joint1 = generateValue(3.7524580955505371e-01, 5.2359879016876221e-02, 0.);
-            double[] finger1joint2 = generateValue(-1.1780, 3.6651e-01, -9.5993e-02, -9.5993e-02, 0.0, 0.0);
-            double[] finger1joint3 = generateValue(-1.4660, 2.0943e-01, -1.1344e-01, -1.2217e-01, 0.0, 0.0);
-            double[] finger2joint1 = generateValue(-1.0003, 3.2288e-01, 9.5993e-02, 8.7266e-02, 0.0, 0.0);
-            double[] finger2joint2 = generateValue(-0.9250, 4.7996e-01, -1.3089e-01, -1.3089e-01, 0.0, 0.0);
-            double[] finger2joint3 = generateValue(-1.8064, 3.2288e-01, 2.6179e-02, -2.1816e-01, 0.0, 0.0);
-            double[] finger3joint1 = generateValue(-1.4660, 2.9670e-01, 1.5707e-01, -2.6179e-02, 2.0943e-01, 2.0943e-01);
-            double[] finger3joint2 = generateValue(-1.0733, 5.0614e-01, -2.0943e-01, -2.0943e-01, 0.0, 0.0);
-            double[] finger3joint3 = generateValue(-1.5358, 1.0471e-01, 0.0, 0.0, 0.0, 0.0);
-            double[] finger4joint1 = generateValue(-1.1606, 2.7052e-01, 1.1344e-01, 7.8539e-02, 0.0, 0.0);
-            double[] finger4joint2 = generateValue(-1.1344, 1.5707e-01, 0.0, 0.0, 0.0, 0.0);
-            double[] finger4joint3 = generateValue(-1.2828, 3.0543e-01, 0.0, 0.0, 0.0, 0.0);
+            double[] finger1joint2 = generateValue(3.6651915311813354e-01, -9.5993109047412872e-02, 0.);
+            double[] finger1joint3 = generateValue(2.0943951606750488e-01, -1.2217304855585098e-01, 0.);
+            double[] finger2joint1 = generateValue(3.2288593053817749e-01, 8.7266467511653900e-02, 0.);
+            double[] finger2joint2 = generateValue(4.7996556758880615e-01, -1.3089969754219055e-01, 0.);
+            double[] finger2joint3 = generateValue(3.2288593053817749e-01, -2.1816615760326385e-01, 0.);
+            double[] finger3joint1 = generateValue(2.9670599102973938e-01, -2.6179939508438110e-02, 2.0943951606750488e-01);
+            double[] finger3joint2 = generateValue(5.0614547729492188e-01, -2.0943951606750488e-01, 0.);
+            double[] finger3joint3 = generateValue(1.0471975803375244e-01, 0., 0.);
+            double[] finger4joint1 = generateValue(2.7052605152130127e-01, 7.8539818525314331e-02, 0.);
+            double[] finger4joint2 = generateValue(1.5707963705062866e-01, 0., 0.);
+            double[] finger4joint3 = generateValue(3.0543261766433716e-01, 0., 0.);
+            double[] finger5joint1 = generateValue(0., 3.4906587004661560e-01, 0.);
+            double[] finger5joint2 = generateValue(0., 0., 0.);
+            double[] finger5joint3 = generateValue(0., 0., 0.);
 
             double y = generateValue(PI*125.0/180, PI*225.0/180);       // yaw   -> phi
             double p = generateValue(PI*(-35.0)/180, PI*65.0/180);      // pitch -> theta
@@ -53,9 +56,9 @@ public class Parser {
             jointsMap.put("finger4joint1", finger4joint1);
             jointsMap.put("finger4joint2", finger4joint2);
             jointsMap.put("finger4joint3", finger4joint3);
-            jointsMap.put("finger5joint1", new double[]{6.8940508365631104e-01, 2.6179939508438110e-01, 0.});
-            jointsMap.put("finger5joint2", new double[]{3.9269909262657166e-01, -3.4906584769487381e-02, 1.7453292384743690e-02});
-            jointsMap.put("finger5joint3", new double[]{3.0543261766433716e-01, 0., 0.});
+            jointsMap.put("finger5joint1", finger5joint1);
+            jointsMap.put("finger5joint2", finger5joint2);
+            jointsMap.put("finger5joint3", finger5joint3);
             jointsMap.put("metacarpals", new double[]{0., 0., 0.});
             jointsMap.put("carpals", new double[]{0., 0., 0.});
             jointsMap.put("root", new double[]{0., 0., 0.});
