@@ -16,18 +16,18 @@ public class Parser {
     public static void main(final String[] args) throws IOException {
 
         for (int i = 0; i <= QUANTITY; i++) {
-            double[] finger1joint1 = generateValue(3.7524580955505371e-01, 5.2359879016876221e-02, 0.);
-            double[] finger1joint2 = generateValue(3.6651915311813354e-01, -9.5993109047412872e-02, 0.);
-            double[] finger1joint3 = generateValue(2.0943951606750488e-01, -1.2217304855585098e-01, 0.);
-            double[] finger2joint1 = generateValue(3.2288593053817749e-01, 8.7266467511653900e-02, 0.);
-            double[] finger2joint2 = generateValue(4.7996556758880615e-01, -1.3089969754219055e-01, 0.);
-            double[] finger2joint3 = generateValue(3.2288593053817749e-01, -2.1816615760326385e-01, 0.);
-            double[] finger3joint1 = generateValue(2.9670599102973938e-01, -2.6179939508438110e-02, 2.0943951606750488e-01);
-            double[] finger3joint2 = generateValue(5.0614547729492188e-01, -2.0943951606750488e-01, 0.);
-            double[] finger3joint3 = generateValue(1.0471975803375244e-01, 0., 0.);
-            double[] finger4joint1 = generateValue(2.7052605152130127e-01, 7.8539818525314331e-02, 0.);
-            double[] finger4joint2 = generateValue(1.5707963705062866e-01, 0., 0.);
-            double[] finger4joint3 = generateValue(3.0543261766433716e-01, 0., 0.);
+            double[] finger1joint1 = generateValue(-8.1157815456390381e-01, 5.2359879016876221e-02, 0.);
+            double[] finger1joint2 = generateValue(-1.1780972480773926e+00, -9.5993109047412872e-02, 0.);
+            double[] finger1joint3 = generateValue(-1.4660766124725342e+00, -1.1344640702009201e-01, 0.);
+            double[] finger2joint1 = generateValue(-1.0035643577575684e+00, 9.5993109047412872e-02, 0.);
+            double[] finger2joint2 = generateValue(-9.2502450942993164e-01, -1.3089969754219055e-01, 0.);
+            double[] finger2joint3 = generateValue(-1.8064157962799072e+00, 2.6179939508438110e-02, 0.);
+            double[] finger3joint1 = generateValue(-1.4660766124725342e+00, 1.5707963705062866e-01, 2.0943951606750488e-01);
+            double[] finger3joint2 = generateValue(-1.0733774900436401e+00, -2.0943951606750488e-01, 0.);
+            double[] finger3joint3 = generateValue(-1.5358897447586060e+00, 0., 0.);
+            double[] finger4joint1 = generateValue(-1.1606439352035522e+00, 1.1344640702009201e-01, 0.);
+            double[] finger4joint2 = generateValue(-1.1344640254974365e+00, 0., 0.);
+            double[] finger4joint3 = generateValue(-1.2828170061111450e+00, 0., 0.);
             double[] finger5joint1 = generateValue(0., 3.4906587004661560e-01, 0.);
             double[] finger5joint2 = generateValue(0., 0., 0.);
             double[] finger5joint3 = generateValue(0., 0., 0.);
