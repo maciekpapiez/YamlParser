@@ -11,7 +11,7 @@ import java.util.LinkedHashMap;
 import java.util.Random;
 
 public class Parser {
-    private static final int QUANTITY = 30;
+    private static final int QUANTITY = 50;
 
     public static void main(final String[] args) throws IOException {
 
@@ -32,9 +32,9 @@ public class Parser {
             double[] finger5joint2 = generateValue(0., 0., 0.);
             double[] finger5joint3 = generateValue(0., 0., 0.);
 
-            double y = generateValue(PI*125.0/180, PI*225.0/180);       // yaw   -> phi
-            double p = generateValue(PI*(-35.0)/180, PI*65.0/180);      // pitch -> theta
-            double r = generateValue(PI*30.0/180, PI*140.0/180);        // roll  -> tilt
+            double p = generateValue(-PI*70.0/180, PI*10.0/180);        // pitch -> theta
+            double y = generateValue(PI*130.0/180, PI*190.0/180);       // yaw   -> phi
+            double r = generateValue(PI*75.0/180, PI*110.0/180);        // roll  -> tilt
 
             Yaml yaml = new Yaml();
             HashMap<String, Object> map = new LinkedHashMap<>();
@@ -88,6 +88,10 @@ public class Parser {
     }
 
     private static double[] generateValue(final double x, final double y, final double z) {
-        return generateValue(0.9 * x, 1.1 * x, 0.9 * y, 1.1 * y, z, z);
+        return generateValue(0.8 * x, 1.2 * x, 0.95 * y, 1.05 * y, z, z);
+    }
+
+    private static double generateValue(final double x) {
+        return generateValue(0.9 * x, 1.1 * x);
     }
 }
