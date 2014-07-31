@@ -11,28 +11,28 @@ import java.util.LinkedHashMap;
 import java.util.Random;
 
 public class Parser {
-    private static final int QUANTITY = 1;
+    private static final int QUANTITY = 30;
 
     public static void main(final String[] args) throws IOException {
 
-        double[] finger1joint1 = generateValue(-0.8115, 3.7524e-01, 5.2359e-02, 5.2359e-02, 0.0, 0.0);
-        double[] finger1joint2 = generateValue(-1.1780, 3.6651e-01, -9.5993e-02, -9.5993e-02, 0.0, 0.0);
-        double[] finger1joint3 = generateValue(-1.4660, 2.0943e-01, -1.1344e-01, -1.2217e-01, 0.0, 0.0);
-        double[] finger2joint1 = generateValue(-1.0003, 3.2288e-01, 9.5993e-02, 8.7266e-02, 0.0, 0.0);
-        double[] finger2joint2 = generateValue(-0.9250, 4.7996e-01, -1.3089e-01, -1.3089e-01, 0.0, 0.0);
-        double[] finger2joint3 = generateValue(-1.8064, 3.2288e-01, 2.6179e-02, -2.1816e-01, 0.0, 0.0);
-        double[] finger3joint1 = generateValue(-1.4660, 2.9670e-01, 1.5707e-01, -2.6179e-02, 2.0943e-01, 2.0943e-01);
-        double[] finger3joint2 = generateValue(-1.0733, 5.0614e-01, -2.0943e-01, -2.0943e-01, 0.0, 0.0);
-        double[] finger3joint3 = generateValue(-1.5358, 1.0471e-01, 0.0, 0.0, 0.0, 0.0);
-        double[] finger4joint1 = generateValue(-1.1606, 2.7052e-01, 1.1344e-01, 7.8539e-02, 0.0, 0.0);
-        double[] finger4joint2 = generateValue(-1.1344, 1.5707e-01, 0.0, 0.0, 0.0, 0.0);
-        double[] finger4joint3 = generateValue(-1.2828, 3.0543e-01, 0.0, 0.0, 0.0, 0.0);
-
-        double y = generateValue(PI*125.0/180, PI*225.0/180);       // yaw   -> phi
-        double p = generateValue(PI*(-35.0)/180, PI*65.0/180);      // pitch -> theta
-        double r = generateValue(PI*30.0/180, PI*140.0/180);        // roll  -> tilt
-
         for (int i = 0; i <= QUANTITY; i++) {
+            double[] finger1joint1 = generateValue(3.7524580955505371e-01, 5.2359879016876221e-02, 0.);
+            double[] finger1joint2 = generateValue(-1.1780, 3.6651e-01, -9.5993e-02, -9.5993e-02, 0.0, 0.0);
+            double[] finger1joint3 = generateValue(-1.4660, 2.0943e-01, -1.1344e-01, -1.2217e-01, 0.0, 0.0);
+            double[] finger2joint1 = generateValue(-1.0003, 3.2288e-01, 9.5993e-02, 8.7266e-02, 0.0, 0.0);
+            double[] finger2joint2 = generateValue(-0.9250, 4.7996e-01, -1.3089e-01, -1.3089e-01, 0.0, 0.0);
+            double[] finger2joint3 = generateValue(-1.8064, 3.2288e-01, 2.6179e-02, -2.1816e-01, 0.0, 0.0);
+            double[] finger3joint1 = generateValue(-1.4660, 2.9670e-01, 1.5707e-01, -2.6179e-02, 2.0943e-01, 2.0943e-01);
+            double[] finger3joint2 = generateValue(-1.0733, 5.0614e-01, -2.0943e-01, -2.0943e-01, 0.0, 0.0);
+            double[] finger3joint3 = generateValue(-1.5358, 1.0471e-01, 0.0, 0.0, 0.0, 0.0);
+            double[] finger4joint1 = generateValue(-1.1606, 2.7052e-01, 1.1344e-01, 7.8539e-02, 0.0, 0.0);
+            double[] finger4joint2 = generateValue(-1.1344, 1.5707e-01, 0.0, 0.0, 0.0, 0.0);
+            double[] finger4joint3 = generateValue(-1.2828, 3.0543e-01, 0.0, 0.0, 0.0, 0.0);
+
+            double y = generateValue(PI*125.0/180, PI*225.0/180);       // yaw   -> phi
+            double p = generateValue(PI*(-35.0)/180, PI*65.0/180);      // pitch -> theta
+            double r = generateValue(PI*30.0/180, PI*140.0/180);        // roll  -> tilt
+
             Yaml yaml = new Yaml();
             HashMap<String, Object> map = new LinkedHashMap<>();
             map.put("rotation", new double[]{cos(p) * cos(r), -cos(p) * sin(r), sin(p),
@@ -63,7 +63,7 @@ public class Parser {
             map.put("hand_joints", jointsMap);
             String output = yaml.dump(map);
 
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File(++i + ".yml")))) {
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File(i + ".yml")))) {
                 writer.write("%YAML:1.0\n");
                 writer.write(output);
             }
@@ -82,5 +82,9 @@ public class Parser {
         final Random random = new Random();
 
         return random.nextDouble() * (max - min) + min;
+    }
+
+    private static double[] generateValue(final double x, final double y, final double z) {
+        return generateValue(0.9 * x, 1.1 * x, 0.9 * y, 1.1 * y, z, z);
     }
 }
